@@ -1,0 +1,301 @@
+/*-------------------------------------------------------------------------------------
+    Pricing Box
+---------------------------------------------------------------------------------------*/
+
+
+.pricing-wrap {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-box {
+    padding: 60px 40px 60px;
+    position: relative;
+    background-color: #fff;
+    -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    height: 100%;
+    margin-bottom: 0;
+
+    &.active {
+        padding: 106px 40px 80px;
+    }
+
+    .sl-list-2 .list-header .title-wrap h6.heading {
+        font-weight: 400;
+    }
+
+    .header {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 38px;
+
+        .feature-mark {
+            background-color: $theme-color;
+            display: block;
+            padding: 5px 18px 5px 10px;
+            position: absolute;
+            top: 44px;
+            left: -4px;
+            text-transform: uppercase;
+            font-size: 10px;
+            line-height: 1.4;
+            font-weight: 600;
+            color: #fff;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                border-right: 9px solid #fff;
+                border-top: 12px solid transparent;
+                border-bottom: 12px solid transparent;
+            }
+        }
+
+        .price {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: start;
+            -webkit-align-items: flex-start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+
+            h3 {
+                &.currenct {
+                    font-size: 18px;
+                    margin-bottom: 0;
+                }
+
+                &.heading {
+                    font-size: 48px;
+                    line-height: .9;
+                    margin: 0 4px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .content {
+        h5 {
+            &.heading {
+                margin-bottom: 21px;
+            }
+        }
+    }
+
+    .sl-btn-small {
+        background: #000;
+        color: #fff;
+    }
+
+    &.hoverable:hover,
+    &.hoverable.active {
+        background: $theme-color;
+
+        .title {
+            color: #fff !important;
+        }
+
+        .price-wrap h3 {
+            color: #fff;
+        }
+
+        .period {
+            color: #fff !important;
+        }
+
+        .sl-list-2 h6 {
+            color: #fff !important;
+        }
+
+        .sl-btn-small {
+            background: #fff !important;
+            color: #000;
+        }
+    }
+
+    &.gradient-skyblue:hover,
+    &.gradient-skyblue.active {
+        @extend .gradient-bg-skyhblue;
+    }
+
+    &.grad-orange-yellow:hover,
+    &.grad-orange-yellow.active {
+        @extend .gradcolor-orange-yellow;
+    }
+}
+
+
+// Pricing Style Style 3
+
+.price-style-3 {
+    .pricing-box {
+        position: relative;
+        margin: 0 auto;
+        background-color: $white;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, .05);
+        padding: 25px 35px 37px;
+        transition: all 0.3s ease-in-out;
+
+        .header {
+            padding-bottom: 33px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 23px;
+
+            .price-area {
+                .header-title {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .pricing-feature-mark {
+                        order: 2;
+                        display: block;
+                        padding: 3px 10px;
+                        font-size: 11px;
+                        font-weight: 700;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        text-align: center;
+                        background: #efefef;
+                        line-height: 1.75;
+                        margin-bottom: 15px;
+                    }
+
+                    .title {
+                        font-size: 18px;
+                        font-weight: 500;
+                        line-height: 1.34;
+                        margin-bottom: 15px;
+                        order: 1;
+                    }
+                }
+
+                .price-wrap {
+                    h3 {
+                        font-size: 40px;
+                        line-height: 1.275;
+                        margin: 0;
+                        font-weight: 600;
+                    }
+                }
+
+                .period {
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 1.67;
+                    color: inherit;
+                    width: 100%;
+                    margin: 10px 0 0;
+                }
+            }
+        }
+    }
+
+    &:hover {
+        .procing-box {
+            transform: translateY(-5px);
+        }
+    }
+}
+
+.more-pricing {
+    text-align: center;
+
+    p {
+        font-size: 16px;
+        line-height: 1.75;
+        color: #777;
+
+        a {
+            color: #68AE4A;
+            position: relative;
+            padding: 2px 0;
+            overflow: hidden;
+            z-index: 1;
+
+            &::after {
+                content: "";
+                position: absolute;
+                height: 1px;
+                bottom: 0;
+                width: 100%;
+                right: 0;
+                left: auto;
+                z-index: -2;
+                background: #ddd;
+                transition: width .6s cubic-bezier(.25, .8, .25, 1) 0s;
+            }
+
+            &::before {
+                content: "";
+                width: 0;
+                height: 1px;
+                bottom: 0;
+                position: absolute;
+                left: auto;
+                right: 0;
+                z-index: -1;
+                -webkit-transition: width 1s cubic-bezier(.25, .8, .25, 1) 0s;
+                transition: width 1s cubic-bezier(.25, .8, .25, 1) 0s;
+                background: currentColor;
+            }
+
+            &:hover {
+                &::before {
+                    width: 100%;
+                    left: 0;
+                    right: auto;
+                }
+            }
+        }
+    }
+}
+
+/* ===================================
+        Shop
+  ===================================*/
+
+.salon-prices {
+    .price-list {
+        border-bottom: 2px solid $theme-color;
+        padding: 25px 16px 25px 12px;
+        cursor: pointer;
+        background: -webkit-gradient(linear, left top, right top, color-stop(50%, rgba($theme-color, 0.61)), color-stop(50%, white));
+        background: -o-linear-gradient(left, rgba($theme-color, 0.61) 50%, white 50%);
+        background: linear-gradient(to right, rgba($theme-color, 0.61) 50%, white 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        -webkit-transition: all .5s ease-out;
+        -o-transition: all .5s ease-out;
+        transition: all .5s ease-out;
+
+        &:hover {
+            background-position: left bottom;
+        }
+    }
+
+    .price-list {
+        .info {
+            .sub-heading {
+                font-size: 15px;
+                margin-top: 15px;
+            }
+
+            .main-heading {
+                font-size: 20px;
+            }
+        }
+
+        .rates .rate {
+            font-size: 38px;
+            margin: 0;
+            font-weight: 600;
+        }
+    }
+}

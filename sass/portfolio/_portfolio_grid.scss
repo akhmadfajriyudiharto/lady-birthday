@@ -1,0 +1,604 @@
+/*-------------------------------------------------------------------------------------
+    Portfolio Details
+---------------------------------------------------------------------------------------*/
+
+.sl-portfolio-area {
+    position: relative;
+}
+
+.portfolio-nogap {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.portfolio {
+    position: relative;
+
+    &.portfolio-style-1 {
+        .thumb {
+            img {
+                width: 100%;
+            }
+        }
+
+        .port-overlay-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+            transition: all .3s cubic-bezier(.645, .045, .355, 1);
+            background-color: $theme-color;
+
+            .hover-action {
+                text-align: center;
+                padding: 0 15px;
+                top: 50%;
+                position: absolute;
+                width: 100%;
+                transform: translateY(-50%);
+
+                h3 {
+                    &.post-overlay-title {
+                        opacity: 0;
+                        -webkit-transition: .3s ease-out 0s;
+                        transition: .3s ease-out 0s;
+                        -webkit-transform: translateY(10px);
+                        -ms-transform: translateY(10px);
+                        transform: translateY(10px);
+                        font-size: 18px;
+                        line-height: 1.4;
+                        color: #fff;
+                        margin: 0;
+                        font-weight: 600;
+                        letter-spacing: 0em;
+                        font-family: $body-font;
+
+                        @media #{$sm-layout} {
+                            font-size: 20px;
+                        }
+
+                        a {
+                            color: #fff;
+                        }
+
+                        &.font-24 {
+                            font-size: 24px;
+
+                            @media #{$sm-layout} {
+                                font-size: 17px;
+                            }
+                        }
+                    }
+                }
+
+                .category {
+                    font-weight: 500;
+                    font-size: 14px;
+                    opacity: 0;
+                    -webkit-transition: .3s ease-out 0s;
+                    transition: .3s ease-out 0s;
+                    -webkit-transform: translateY(10px);
+                    -ms-transform: translateY(10px);
+                    transform: translateY(10px);
+                    margin-top: 10px;
+                    color: #fff;
+                }
+            }
+
+            // Font Playfier
+            &.font-playfair {
+                .hover-action {
+                    h3 {
+                        &.post-overlay-title {
+                            font-size: 24px;
+                            font-family: "Playfair Display", Georgia, serif;
+                            @media #{$sm-layout} {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.lg-font {
+                .hover-action {
+                    h3 {
+                        &.post-overlay-title {
+                            font-size: 30px;
+                            font-weight: 700;
+                            line-height: 1.24;
+                            @media #{$custom-lg-layout}{
+                                font-size: 20px;
+                            }
+                        }
+                    }
+
+                    .category {
+                        font-style: italic;
+                        font-size: 15px;
+                        position: relative;
+                        padding-left: 50px;
+
+                        &::before {
+                            position: absolute;
+                            top: 12px;
+                            left: 0;
+                            content: "";
+                            width: 40px;
+                            height: 1px;
+                            background: #fff;
+                        }
+                    }
+                }
+            }
+
+            &.position-left {
+                .hover-action {
+                    padding: 40px;
+                    top: 0;
+                    position: absolute;
+                    transform: translateY(0);
+                    text-align: left;
+
+                    @media #{$sm-layout} {
+                        padding: 10px;
+                    }
+                }
+            }
+
+            &.position-bottom {
+                .hover-action {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    top: auto;
+                    padding: 37px 28px;
+                    transform: translateY(0);
+                    text-align: left;
+
+                }
+            }
+
+            &.with-caption {
+                .hover-action {
+                    h3 {
+                        &.post-overlay-title {
+                            -webkit-transform: translateY(-10px);
+                            -ms-transform: translateY(-10px);
+                            transform: translateY(-10px);
+                            -webkit-transition: .3s ease-out 0s;
+                            transition: .3s ease-out 0s;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        // Portfolio Balck Shpe
+        &.bg-black-shape {
+
+            .port-overlay-info {
+                background-color: transparent;
+            }
+
+            .port-black-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                visibility: hidden;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                background: -webkit-linear-gradient(bottom, #000, transparent 50%);
+                background: linear-gradient(0deg, #000 0, transparent 50%);
+                -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+                transition: all .3s cubic-bezier(.645, .045, .355, 1);
+            }
+        }
+
+        // Portfolio Hover Effect
+        &:hover {
+            .port-overlay-info {
+                visibility: visible;
+                opacity: .9;
+
+                h3 {
+                    &.post-overlay-title {
+                        opacity: 1;
+                        -webkit-transition: .5s ease-out .2s;
+                        transition: .5s ease-out .2s;
+                        -webkit-transform: translateY(0);
+                        -ms-transform: translateY(0);
+                        transform: translateY(0);
+                    }
+                }
+
+                .category {
+                    opacity: 1;
+                    -webkit-transition: .5s ease-out .2s;
+                    transition: .5s ease-out .2s;
+                    -webkit-transform: translateY(0);
+                    -ms-transform: translateY(0);
+                    transform: translateY(0);
+                }
+
+            }
+
+            .port-overlay-info {
+                &.with-caption {
+                    .hover-action {
+                        h3 {
+                            &.post-overlay-title {
+                                opacity: 1;
+                                -webkit-transition: .5s ease-out .2s;
+                                transition: .5s ease-out .2s;
+                                -webkit-transform: translateY(0);
+                                -ms-transform: translateY(0);
+                                transform: translateY(0);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.bg-black-shape {
+                .port-black-overlay {
+                    visibility: visible;
+                    opacity: .9;
+                }
+            }
+
+        }
+    }
+
+    &.portfolio-style-2 {
+        .thumb {
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                -webkit-transition: .3s ease-out 0s;
+                transition: .3s ease-out 0s;
+            }
+        }
+
+        .port-overlay-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+            transition: all .3s cubic-bezier(.645, .045, .355, 1);
+            background-color: $theme-color;
+            ;
+
+            .year {
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: #fff;
+                padding: 37px 28px;
+                font-size: 20px;
+                opacity: 0;
+                -webkit-transition: .3s ease-out 0s;
+                transition: .3s ease-out 0s;
+                -webkit-transform: translateY(-10px);
+                -ms-transform: translateY(-10px);
+                transform: translateY(-10px);
+            }
+
+            .hover-action {
+                text-align: center;
+                padding: 0 15px;
+                top: 50%;
+                position: absolute;
+                width: 100%;
+                transform: translateY(-50%);
+
+                h3 {
+                    &.post-overlay-title {
+                        opacity: 0;
+                        -webkit-transition: .3s ease-out 0s;
+                        transition: .3s ease-out 0s;
+                        -webkit-transform: translateY(10px);
+                        -ms-transform: translateY(10px);
+                        transform: translateY(10px);
+                        font-size: 18px;
+                        line-height: 1  .4;
+                        color: #fff;
+                        margin: 0;
+                        font-weight: 600;
+                        letter-spacing: 0em;
+                        font-family: $body-font;
+
+                        @media #{$sm-layout} {
+                            font-size: 20px;
+                        }
+
+                        a {
+                            color: #fff;
+                        }
+
+                        &.font-24 {
+                            font-size: 24px;
+
+                            @media #{$sm-layout} {
+                                font-size: 17px;
+                            }
+                        }
+                    }
+                }
+
+                .category {
+                    font-weight: 500;
+                    font-size: 14px;
+                    opacity: 0;
+                    -webkit-transition: .3s ease-out 0s;
+                    transition: .3s ease-out 0s;
+                    -webkit-transform: translateY(10px);
+                    -ms-transform: translateY(10px);
+                    transform: translateY(10px);
+                    margin-top: 10px;
+
+                    a {
+                        color: #fff;
+                        margin-right: 10px;
+                    }
+
+                    &::before {
+                        display: none;
+                        position: absolute;
+                        top: 12px;
+                        left: 0;
+                        content: "";
+                        width: 40px;
+                        height: 1px;
+                        background: #fff;
+                    }
+                }
+
+                .btn {
+                    background: $white;
+                    color: $black;
+                    border-radius: 50%;
+                    padding: 10px 15px;
+                    font-size: 20px;
+                    width: 50px;
+                    height: 50px;
+                    display: inline-block;
+                    margin-right: 10px;
+                    opacity: 0;
+                    -webkit-transition: .3s ease-out 0s;
+                    transition: .3s ease-out 0s;
+                    -webkit-transform: translateY(10px);
+                    -ms-transform: translateY(10px);
+                    transform: translateY(10px);
+
+                    &:hover {
+                        background: $theme-color;
+                        color: $white;
+                    }
+                }
+            }
+
+            // Font Playfier
+            &.font-playfair {
+                .hover-action {
+                    h3 {
+                        &.post-overlay-title {
+                            font-size: 24px;
+                            font-family: "Playfair Display", Georgia, serif;
+
+                            @media #{$sm-layout} {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.lg-font {
+                .hover-action {
+                    h3 {
+                        &.post-overlay-title {
+                            font-size: 26px;
+                            font-weight: 700;
+                            line-height: 1.24;
+                            @media #{$custom-lg-layout}{
+                                font-size: 20px;
+                            }
+                            @media #{$tab-layout}{
+                                font-size: 20px;
+                            }
+                            @media #{$sm-layout}{
+                                font-size: 20px;
+                            }
+                            @media #{$small-mobile}{
+                                font-size: 16px;
+                            }
+                        }
+                    }
+
+                    .category {
+                        font-style: italic;
+                        font-size: 15px;
+                        position: relative;
+                        padding-left: 50px;
+
+                        &::before {
+                            display: block;
+                            position: absolute;
+                            top: 12px;
+                            left: 0;
+                            content: "";
+                            width: 40px;
+                            height: 1px;
+                            background: #fff;
+                        }
+                    }
+                }
+            }
+
+            &.position-left {
+                .hover-action {
+                    padding: 40px;
+                    top: 0;
+                    position: absolute;
+                    transform: translateY(0);
+                    text-align: left;
+
+                    @media #{$sm-layout} {
+                        padding: 10px;
+                    }
+                }
+            }
+
+            &.position-bottom {
+                .hover-action {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    top: auto;
+
+                    padding: 37px 28px;
+                    transform: translateY(0);
+                    text-align: left;
+                    @media #{$custom-lg-layout}{
+                        padding: 25px 25px;
+                    }
+                }
+            }
+
+            &.with-caption {
+                .hover-action {
+                    h3 {
+                        &.post-overlay-title {
+                            -webkit-transform: translateY(-10px);
+                            -ms-transform: translateY(-10px);
+                            transform: translateY(-10px);
+                            -webkit-transition: .3s ease-out 0s;
+                            transition: .3s ease-out 0s;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        // Portfolio Hover Effect
+        &:hover {
+            .thumb {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+
+            .port-overlay-info {
+                visibility: visible;
+                opacity: 1;
+
+                .year {
+                    opacity: 1;
+                    -webkit-transition: .3s ease-out 0s;
+                    transition: .3s ease-out 0s;
+                    -webkit-transform: translateY(0);
+                    -ms-transform: translateY(0);
+                    transform: translateY(0);
+                }
+
+                h3 {
+                    &.post-overlay-title {
+                        opacity: 1;
+                        -webkit-transition: .5s ease-out .2s;
+                        transition: .5s ease-out .2s;
+                        -webkit-transform: translateY(0);
+                        -ms-transform: translateY(0);
+                        transform: translateY(0);
+                    }
+                }
+
+                .category {
+                    opacity: 1;
+                    -webkit-transition: .5s ease-out .2s;
+                    transition: .5s ease-out .2s;
+                    -webkit-transform: translateY(0);
+                    -ms-transform: translateY(0);
+                    transform: translateY(0);
+                }
+
+                .btn {
+                    opacity: 1;
+                    -webkit-transition: .5s ease-out .2s;
+                    transition: .5s ease-out .2s;
+                    -webkit-transform: translateY(0);
+                    -ms-transform: translateY(0);
+                    transform: translateY(0);
+                }
+            }
+
+            .port-overlay-info {
+                &.with-caption {
+                    .hover-action {
+                        h3 {
+                            &.post-overlay-title {
+                                opacity: 1;
+                                -webkit-transition: .5s ease-out .2s;
+                                transition: .5s ease-out .2s;
+                                -webkit-transform: translateY(0);
+                                -ms-transform: translateY(0);
+                                transform: translateY(0);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.bg-black-shape {
+                .port-black-overlay {
+                    visibility: visible;
+                    opacity: .9;
+                }
+            }
+        }
+    }
+}
+
+.portfolio-grid-nogap {
+    .portfolio-33-33 {
+        width: 33.33%;
+    }
+
+    .resizer {
+        width: 33.33%;
+    }
+
+    @media #{$md-layout} {
+        .portfolio-33-33 {
+            width: 50%;
+        }
+
+        .resizer {
+            width: 50%;
+        }
+    }
+
+    @media #{$sm-layout} {
+        .portfolio-33-33 {
+            width: 100%;
+        }
+
+        .resizer {
+            width: 100%;
+        }
+    }
+}

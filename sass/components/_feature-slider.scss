@@ -1,0 +1,106 @@
+/*-------------------------------------------------------------------------------------
+    Features Sliders  
+---------------------------------------------------------------------------------------*/
+
+.feature-slider {
+    position: relative;
+
+    &.owl-carousel .owl-nav {
+        position: absolute;
+        top: 155px;
+        margin-bottom: 50px;
+        width: 100%;
+    }
+
+    &.owl-carousel .owl-nav button.owl-next,
+    &.owl-carousel .owl-nav button.owl-prev {
+        color: #000;
+        background: #fff;
+        font-size: 23px;
+        padding: 8px 14px !important;
+
+        &:hover {
+            background: $theme-color;
+            color: $white;
+        }
+    }
+
+    &.owl-carousel .owl-nav button {
+        position: absolute;
+    }
+
+    &.owl-carousel .owl-nav button.owl-prev {
+        left: 0;
+
+        @media #{$sm-layout} {
+            left: 20px;
+        }
+    }
+
+    &.owl-carousel .owl-nav button.owl-next {
+        right: 0;
+
+        @media #{$sm-layout} {
+            right: 20px;
+        }
+    }
+}
+
+.properties {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    overflow: hidden;
+
+    .fancy-box-contents {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 500;
+        color: $white;
+    }
+
+    .price {
+        font-size: 24px;
+        font-weight: 600;
+        display: block;
+        color: $white;
+    }
+
+    .features {
+        font-size: 14px;
+        display: block;
+        color: $white;
+    }
+
+    .fancy-box-header {
+        padding: 0 20px;
+        transition: all .3s ease-in-out 0s;
+    }
+
+    .fancy-box-info {
+        padding: 0 20px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+        transform: translateY(50px);
+        transition: all .3s ease-in-out 0s;
+    }
+
+    &:hover .fancy-box-info {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}

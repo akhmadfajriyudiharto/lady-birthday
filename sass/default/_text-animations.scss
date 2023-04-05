@@ -1,0 +1,26 @@
+/*-------------------------------------------------------------------------------------
+    Text- Animations
+---------------------------------------------------------------------------------------*/
+
+/* Text animation scaleY */
+
+.text-anime-scaleY {
+    position: relative;
+    display: flex;
+
+    .text-wrapper {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+    }
+
+    .letter {
+        display: inline-block;
+        line-height: 1em;
+        text-transform: lowercase;
+        &:first-child{
+            text-transform: uppercase;
+        }
+    }
+
+ }

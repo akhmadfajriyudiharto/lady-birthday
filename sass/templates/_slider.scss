@@ -1,0 +1,487 @@
+/*-------------------------------------------------------------------------------------
+    Welcome Slider
+---------------------------------------------------------------------------------------*/
+
+.welcome-area {
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-slides {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    .owl-prev,
+    .owl-next {
+        transition: 500ms;
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 60px;
+        margin-top: -33px;
+        z-index: 10;
+        text-align: center;
+        line-height: 70px;
+        color: $white;
+        font-size: 30px;
+        background: transparent !important;
+        border: 1px solid $color-18 !important;
+        color: $color-18 !important;
+        font-size: 25px !important;
+
+        &:hover,
+        &:focus {
+            background: $color-18;
+        }
+
+        // @media #{$tab_device} {
+        //     left: 30px;
+        // }
+
+        // @media #{$media_xs} {
+        //     width: 40px;
+        //     left: 15px;
+        //     height: 40px;
+        //     font-size: 18px;
+        //     line-height: 44px;
+        // }
+    }
+
+    .owl-next {
+        left: auto;
+        right: 70px;
+
+        // @media #{$tab_device} {
+        //     right: 30px;
+        // }
+
+        // @media #{$media_xs} {
+        //     right: 15px;
+        // }
+    }
+}
+
+.single-welcome-slide {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 660px;
+
+    // @media #{$medium_device} {
+    //     height: 750px;
+    // }
+
+    // @media #{$tab_device} {
+    //     height: 750px;
+    // }
+
+    // @media #{$media_xs} {
+    //     height: 600px;
+    // }
+
+    .welcome-text {
+        position: relative;
+        z-index: 1;
+
+        h2 {
+            font-weight: 700;
+            font-size: 82px;
+            line-height: 1;
+            display: block;
+            margin-bottom: 38px;
+            color: $white;
+
+            // @media #{$media_xs} {
+            //     font-size: 42px !important;
+            // }
+        }
+
+        p {
+            color: $white;
+            margin-bottom: 50px;
+            display: block;
+        }
+
+        .hero-mail-contact {
+            color: $white;
+            font-style: italic;
+            text-decoration: underline;
+
+            &:hover,
+            &:focus {
+                color: $color-18;
+            }
+        }
+    }
+}
+
+// Vars
+
+
+// // Base
+// html {
+//   font-size: 62.5%;
+// }
+
+// body {
+//   font-size: 1.6rem;
+//   font-family: $poppins;
+// }
+
+// Design Slider
+.slider,
+.slide {
+    // @media (min-width: 992px) {
+    //     height: 80vh;
+    // }
+    // @media #{$custom-lg-layout} {
+    //     height: 48vh;
+    // }
+
+}
+
+.beauty-slide {
+    position: relative;
+    transition: 1s;
+    height: 550px;
+    @media #{$extra-large}{
+        height: 700px;
+    }
+    @media (min-width: 992px) {
+        // height: 80vh;
+    }
+    @media #{$custom-lg-layout} {
+        height: 600px;
+    }
+    .slide__img {
+        // @media (min-width: 992px) {
+        //     position: absolute;
+        //   top: 50%;
+        //   left: 0;
+        //   transform: translateY(-50%);
+        // }
+
+        
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .full-image{
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat; 
+            opacity: 1 !important;
+            animation-duration: 3s;
+            transition: all 1s ease;
+        }
+    }
+
+    .slide__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &.slide__content__left {
+            left: 15%;
+            transform: translate(-15%, -50%);
+            @media #{$custom-lg-layout} {
+                left: 17%;
+            }
+            @media #{$tab-layout} {
+                left: 17%;
+            }
+        }
+
+        &.slide__content__right {
+            right: 15%;
+            left: auto;
+            transform: translate(5%, -50%);
+        }
+
+        .border-layer {
+            display: block;
+            border: 5px solid $theme-color;
+            width: 100%;
+            padding: 20px;
+            &.border-1{
+                border: 5px solid #dc4c4c !important;
+            }
+            &.border-2{
+                border: 5px solid #f59028  !important;
+            }
+            &.border-3{
+                border: 5px solid #d2661a !important;
+            }
+        }
+
+        &--headings {
+            color: #000;
+
+            h2 {
+                font-size: 4rem;
+                margin: 0;
+                color: #000;
+            }
+
+            .animated {
+                transition: all .5s ease;
+            }
+
+            .top-title {
+                font-family: $poppins;
+                font-size: 1.5rem;
+                color: #000;
+                @media #{$tab-layout}{
+                    font-size: 1rem;
+                }
+            }
+
+            .title {
+                font-size: 3.5rem;
+                @media #{$tab-layout}{
+                    font-size: 2.5rem;
+                }
+            }
+
+            .button-custom {
+                text-decoration: none;
+                color: #333;
+                padding: 0.5rem 1.8rem;
+                font-size: 1rem;
+                margin-top: 15px;
+                @media #{$tab-layout}{
+                    font-size: 1rem;
+                }
+            }
+
+        }
+    }
+}
+.slick-slide .slide__content{
+    display: none;
+}
+.slick-slide.slick-current.slick-active .slide__content{
+    display: block;
+}
+// Change animation presets
+.slider [data-animation-in] {
+    opacity: 0;
+    animation-duration: 1.5s;
+    transition: opacity 0.5s ease 0.3s;
+    transition: 1s;
+}
+
+// Dots
+.slick-dotted .slick-slider {
+    margin-bottom: 30px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 25px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    li {
+        position: relative;
+        display: inline-block;
+        margin: 0 5px;
+        padding: 0;
+        cursor: pointer;
+
+        button {
+            border: 0;
+            display: block;
+            outline: none;
+            line-height: 0px;
+            font-size: 0px;
+            color: transparent;
+            padding: 5px;
+            cursor: pointer;
+            transition: all .3s ease;
+
+            &:hover,
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+.simple-dots {
+    .slick-dots {
+        li {
+            width: $slick-dot-width;
+            height: $slick-dot-height;
+
+            button {
+                border-radius: 50%;
+                background-color: $slick-dot-color;
+                opacity: $slick-opacity-not-active;
+                width: $slick-dot-width;
+                height: $slick-dot-height;
+
+                &:hover,
+                &:focus {
+                    opacity: $slick-opacity-on-hover;
+                }
+            }
+
+            &.slick-active button {
+                color: $slick-dot-color-active;
+                opacity: $slick-opacity-default;
+            }
+        }
+    }
+}
+
+.stick-dots {
+    .slick-dots {
+        li {
+            height: 3px;
+            width: 50px;
+
+            button {
+                position: relative;
+                background-color: $slick-dot-color;
+                opacity: $slick-opacity-not-active;
+                width: 50px;
+                height: 3px;
+                padding: 0;
+
+                &:hover,
+                &:focus {
+                    opacity: $slick-opacity-on-hover;
+                }
+            }
+
+            &.slick-active button {
+                color: $slick-dot-color-active;
+                opacity: $slick-opacity-default;
+
+                &:hover,
+                &:focus {
+                    opacity: $slick-opacity-on-hover;
+                }
+            }
+        }
+    }
+}
+
+.zoomInImage {
+    animation-name: zoomInImage;
+}
+
+.zoomOutImage {
+    animation-name: zoomOutImage;
+    transition: 1s;
+}
+
+
+.slick-nav {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    cursor: pointer;
+    top: calc(50% - 44px);
+
+    &.prev-arrow {
+        left: 3%;
+        transform: scaleX(-1);
+        z-index: 999;
+    }
+
+    &.next-arrow {
+        left: auto;
+        right: 3%;
+    }
+
+    i {
+        display: block;
+        position: absolute;
+        margin: -10px 0 0 -10px;
+        width: 20px;
+        height: 20px;
+        left: 50%;
+        top: 50%;
+
+        &:before,
+        &:after {
+            content: '';
+            width: 10px;
+            height: 2px;
+            border-radius: 1px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background: #000;
+            margin: -1px 0 0 -5px;
+            display: block;
+            transform-origin: 9px 50%;
+        }
+
+        &:before {
+            transform: rotate(-40deg);
+        }
+
+        &:after {
+            transform: rotate(40deg);
+        }
+    }
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 1px;
+        right: 1px;
+        top: 1px;
+        bottom: 1px;
+        border-radius: 50%;
+        border: 2px solid rgba(0, 0, 0, .12);
+    }
+
+    svg {
+        width: 44px;
+        height: 44px;
+        display: block;
+        position: relative;
+        z-index: 1;
+        color: #fff;
+        stroke-width: 2px;
+        stroke-dashoffset: 126;
+        stroke-dasharray: 126 126 0;
+        transform: rotate(0deg);
+    }
+
+    &.animate {
+        svg {
+            animation: stroke 1s ease forwards .3s;
+        }
+
+        i {
+            animation: arrow 1.6s ease forwards;
+
+            &:before {
+                animation: arrowUp 1.6s ease forwards;
+            }
+
+            &:after {
+                animation: arrowDown 1.6s ease forwards;
+            }
+        }
+    }
+}
+
+/* /////////// IMAGE ZOOM /////////// */

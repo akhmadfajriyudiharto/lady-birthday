@@ -1,0 +1,173 @@
+/*-------------------------------------------------------------------------------------
+    Products
+---------------------------------------------------------------------------------------*/
+
+.product {
+    position: relative;
+
+    &.product-margin {
+        margin-bottom: 30px;
+    }
+
+    img {
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .product-contain h4 {
+        color: $black;
+        font-size: 18px;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            color: $theme-color;
+        }
+    }
+
+    &:hover {
+        .product-contain h4 {
+            color: $theme-color;
+        }
+
+        .product-img {
+            @extend .shadow-medium;
+            -webkit-transform: scale(1.04);
+            transform: scale(1.04);
+            @media #{$sm-layout} {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+            ul>li {
+                &:nth-child(2) {
+                    opacity: 1;
+                    -webkit-transform: translateY(0);
+                    transform: translateY(0);
+                }
+
+                &:nth-child(3) {
+                    opacity: 1;
+                    -webkit-transform: translateY(0);
+                    transform: translateY(0);
+                    -webkit-transition-delay: 0.2s;
+                    transition-delay: 0.2s;
+                }
+
+                &:nth-child(4) {
+                    opacity: 1;
+                    -webkit-transform: translateY(0);
+                    transform: translateY(0);
+                    -webkit-transition-delay: 0.4s;
+                    transition-delay: 0.4s;
+                }
+            }
+        }
+    }
+
+    .tringle-topleft {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &:before {
+            content: "";
+            position: absolute;
+            border-top: 70px solid #6a4031;
+            border-right: 70px solid transparent;
+        }
+
+        h6 {
+            color: #fff;
+            font-family: "Poppins";
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            position: absolute;
+            left: 3px;
+            top: 15px;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+    }
+
+    .product-img {
+        overflow: hidden;
+        position: relative;
+        transition: all 0.5s ease-in-out;
+
+        .timer-box {
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            width: 100%;
+
+            .timer {
+                background: rgba(106, 64, 49, 0.48);
+                padding: 10px 0;
+
+                p {
+                    color: #fff;
+                    margin-bottom: 0;
+                }
+
+                span {
+                    width: 70px;
+                    display: inline-block;
+
+                    .timer-cal {
+                        color: #fff;
+                        text-align: left;
+                        padding-left: 10px;
+                    }
+                }
+
+                .sec {
+                    padding-right: 30px;
+                }
+
+                .padding-l {
+                    padding-left: 22px;
+                    display: inline;
+                }
+            }
+        }
+
+        .product-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            i {
+                color: $theme-color;
+                border: none;
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                padding: 8px;
+                background: $white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @extend .shadow-medium;
+
+            }
+        }
+
+        ul>li+li {
+            padding-top: 5px;
+        }
+    }
+
+    ul>li {
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+            opacity: 0;
+            -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+        }
+    }
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Catch the Fruit</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser/dist/phaser.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // inisialisasi konfigurasi game
+    const config = {
+        type: Phaser.AUTO,
+        width: 640,
+        height: 480,
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: {y: 300},
+                debug: false
+            }
+        },
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        }
+    };
+
+    // membuat game baru
+    const game = new Phaser.Game(config);
+
+    // asset game
+    function preload ()
+    {
+        this.load.image('sky', 'assets/sky.jpg');
+        this.load.image('ground', 'assets/platform.png');
+        this.load.image('star', 'assets/star.png');
+        this.load.image('bomb', 'assets/bomb.png');
+        this.load.spritesheet('dude',
+            'assets/hero.png',
+            { frameWidth: 32, frameHeight: 48 }
+        );
+    }
+
+    // membuat objek di dalam game
+    let platforms;
+    let player;
+    let cursors;
+    let fruits;
+
+    function create ()
+    {
+        // menambahkan background
+        this.add.image(400, 300, 'sky');
+
+        // menambahkan platform
+        platforms = this.physics.add.staticGroup();
+
+        platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+
+        platforms.create(600, 400, 'ground');
+        platforms.create(50, 250, 'ground');
+        platforms.create(750, 220, 'ground');
+
+        // menambahkan karakter
+        player = this.physics.add.sprite(100, 450, 'dude');
+        player.setBounce(0.2);
+        player.setCollideWorldBounds(true);
+
+        // membuat animasi karakter
+        this.anims.create({
+            key: 'left',
+            frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'turn',
+            frames: [ { key: 'dude', frame: 4 } ],
+            frameRate: 20
+        });
+
+        this.anims.create({
+            key: 'right',
+            frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        cursors = this.input.keyboard.createCursorKeys();
+
+        // menambahkan buah
+        fruits = this.physics.add.group({
+            key: 'star',
+            repeat: 11,
+            setXY: { x: 12, y: 0, stepX: 70 }
+        });
+
+        fruits.children.iterate(function (child) {
+          // memberi setiap buah gravitasi
+          child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+        });
+
+        // menambahkan collision antara karakter dan platform
+        this.physics.add.collider(player, platforms);
+
+        // menambahkan collision antara buah dan platform
+        this.physics.add.collider(fruits, platforms);
+
+        // menambahkan overlap antara karakter dan buah
+        this.physics.add.overlap(player, fruits, collectFruit, null, this);
+    }
+
+    // callback function untuk mengumpulkan buah
+    function collectFruit (player, fruit)
+    {
+        fruit.disableBody(true, true);
+    }
+
+    // update game
+    function update ()
+    {
+        if (cursors.left.isDown)
+        {
+            player.setVelocityX(-160);
+
+            player.anims.play('left', true);
+        }
+        else if (cursors.right.isDown)
+        {
+            player.setVelocityX(160);
+
+            player.anims.play('right', true);
+        }
+        else
+        {
+            player.setVelocityX(0);
+
+            player.anims.play('turn');
+        }
+
+        if (cursors.up.isDown && player.body.touching.down)
+        {
+            player.setVelocityY(-330);
+        }
+    }
+  </script>
+</body>
+</html>
