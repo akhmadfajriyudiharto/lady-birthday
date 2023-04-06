@@ -25,6 +25,11 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Custom styles -->
     <link rel="stylesheet" href="css/custom.css">
+    <style>
+		#musik {
+			display: none;
+		}
+    </style>
 </head>
 
 <body class="template-color-31">
@@ -310,6 +315,28 @@
             <i class="ti-arrow-up"></i>
         </a>
     </div><!-- Wrapper end -->
+
+	<!-- Pop-up -->
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Halo, Selamat Datang drg. Ladyna Fitri Nuriella Anwari!</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Body -->
+				<div class="modal-body">
+				</div>
+
+				<!-- Footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+				</div>
+			</div>
+		</div>
+	</div>
     <!-- jquery -->
     <script src="js/jquery.min.js"></script>
     <!-- Plugins js -->
@@ -347,7 +374,15 @@
 				document.getElementById("countdown").innerHTML = "Happy New Year!";
 			}
 		}, 1000);
+
+		$(document).ready(function() {
+			$("#myModal").modal('show');
+			$('#myModal').on('hidden.bs.modal', function () {
+			    $('#musik').trigger('play');
+			});
+		});
 	</script>
+    <audio id="musik" src="audio/musik.mp3" controls loop></audio>
 </body>
 
 </html>
